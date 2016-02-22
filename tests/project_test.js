@@ -4,25 +4,14 @@ describe('Coffee machine - Hiptest publisher sample', function () {
     this.actionwords.sut = CoffeeMachine();
   });
 
-  describe('Simple use', function () {
-    function simpleUse (lang, ready_message) {
-      // Given I start the coffee machine "<lang>"
-      this.actionwords.iStartTheCoffeeMachine(lang);
-      // When I take a coffee
-      this.actionwords.iTakeACoffee();
-      // Then coffee should be served
-      this.actionwords.coffeeShouldBeServed();
-    }
-
-    it('English (uid:9ddc1729-0ea0-40d9-9348-dc1af6328843)', function () {
-      simpleUse.apply(this, ['en', 'Ready']);
-    });
-
-    it('French (uid:b2ad0241-1dbf-4bde-abf7-192b00c0d7a4)', function () {
-      simpleUse.apply(this, ['fr', 'Pret']);
-    });
+  it('Simple use (uid:f904d2e6-6882-45ab-9756-78af7a5dc7e4)', function () {
+    // Given the coffee machine is started
+    this.actionwords.theCoffeeMachineIsStarted();
+    // When I take a coffee
+    this.actionwords.iTakeACoffee();
+    // Then coffee should be served
+    this.actionwords.coffeeShouldBeServed();
   });
-
 
   it('Full grounds does not block coffee (uid:0ae88e38-c64c-4116-8a3e-66b11dc5f475)', function () {
     // Given the coffee machine is started

@@ -1,10 +1,26 @@
 var Actionwords = {
+  iStartTheCoffeeMachine: function (lang) {
+    this.sut.start(lang);
+  },
+
+  iShutdownTheCoffeeMachine: function () {
+    this.sut.stop();
+  },
+
+  messageMessageShouldBeDisplayed: function (message) {
+    expect(this.sut.get('message')).toEqual(message || "");
+  },
+
+  coffeeShouldBeServed: function () {
+    expect(this.sut.get('coffeeServed')).toBeTruthy();
+  },
+
   coffeeShouldNotBeServed: function () {
     expect(this.sut.get('coffeeServed')).toBeFalsy();
   },
 
-  iFillTheWaterTank: function () {
-    this.sut.fillTank();
+  iTakeACoffee: function () {
+    this.sut.takeCoffee();
   },
 
   iEmptyTheCoffeeGrounds: function () {
@@ -15,9 +31,8 @@ var Actionwords = {
     this.sut.fillBeans();
   },
 
-  iShutdownTheCoffeeMachine: function () {
-    this.sut.stop();
-
+  iFillTheWaterTank: function () {
+    this.sut.fillTank();
   },
 
   iTakeCoffeeNumberCoffees: function (coffee_number) {
@@ -26,27 +41,9 @@ var Actionwords = {
       coffee_number = coffee_number - 1;
     }
   },
-
-  iTakeACoffee: function () {
-    this.sut.takeCoffee();
-  },
-
-  coffeeShouldBeServed: function () {
-    expect(this.sut.get('coffeeServed')).toBeTruthy();
-  },
-
-  iStartTheCoffeeMachine: function (lang) {
-    this.sut.start(lang);
-  },
-
-  messageMessageShouldBeDisplayed: function (message) {
-    expect(this.sut.get('message')).toEqual(message || "");
-  },
-
   theCoffeeMachineIsStarted: function () {
     this.iStartTheCoffeeMachine();
   },
-
   fiftyCoffeesHaveBeenTakenWithoutFillingTheTank: function () {
     this.iTakeCoffeeNumberCoffees(30);
     this.iFillTheBeansTank();
@@ -55,11 +52,10 @@ var Actionwords = {
     this.iFillTheBeansTank();
     this.iEmptyTheCoffeeGrounds();
   },
-
   thirtyEightCoffeesAreTakenWithoutFillingBeans: function () {
     this.iTakeCoffeeNumberCoffees(37);
     this.iEmptyTheCoffeeGrounds();
     this.iFillTheWaterTank();
     this.iTakeACoffee();
   }
-}
+};
