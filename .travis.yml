@@ -1,0 +1,13 @@
+language: node_js
+
+before_install:
+  - rvm install 2.2
+  - rvm use 2.2
+  - gem install hiptest-publisher
+  - hiptest-publisher -c javascript-jasmine.conf --only=tests --test-run-id=1979
+
+script:
+  - grunt jasmine
+
+after_script:
+  - hiptest-publisher -c mocha.conf --push=_build/test-reports/jasmine/TEST-CoffeemachineHiptestpublishersample.xml --test-run-id=1979
