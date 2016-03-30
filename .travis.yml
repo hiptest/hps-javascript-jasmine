@@ -11,4 +11,4 @@ script:
   - grunt jasmine
 
 after_script:
-  - hiptest-publisher -c javascript-jasmine.conf --push=_build/test-reports/jasmine/TEST-CoffeemachineHiptestpublishersample.xml --test-run-id=1979
+  - hiptest-publisher -c javascript-jasmine.conf --push="_build/test-reports/jasmine/TEST-*.xml" --test-run-id=1979
