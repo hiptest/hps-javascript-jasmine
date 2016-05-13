@@ -5,10 +5,10 @@ before_install:
   - rvm install 2.2
   - rvm use 2.2
   - gem install hiptest-publisher
-  - hiptest-publisher -c javascript-jasmine.conf --only=tests --test-run-id=1979
+  - hiptest-publisher -c javascript-jasmine.conf --token=$SECRET_TOKEN --only=tests --test-run-id=1979
 
 script:
   - grunt jasmine
 
 after_script:
-  - hiptest-publisher -c javascript-jasmine.conf --push="_build/test-reports/jasmine/TEST-*.xml" --test-run-id=1979
+  - hiptest-publisher -c javascript-jasmine.conf --token=$SECRET_TOKEN --push="_build/test-reports/jasmine/TEST-*.xml" --test-run-id=1979
