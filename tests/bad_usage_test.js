@@ -1,4 +1,4 @@
-describe('Weird specs', function () {
+describe('Bad usage', function () {
   beforeEach(function () {
     this.actionwords = Object.create(Actionwords);
     this.actionwords.sut = CoffeeMachine();
